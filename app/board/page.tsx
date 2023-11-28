@@ -7,7 +7,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 interface TaskCardProps {
   id: string;
-  content: string;
+  content: string | undefined;
   isDragging: boolean;
 }
 
@@ -75,7 +75,7 @@ const TaskPage = () => {
       </SortableContext>
 
       <DragOverlay>
-        {activeId ? <TaskCard id={activeId} content={tasks.find(task => task.id === activeId)?.content} /> : null}
+        {activeId ? <TaskCard id={activeId} content={tasks.find(task => task.id === activeId)?.content} isDragging={true} /> : null}
       </DragOverlay>
 
       <style jsx>{`
